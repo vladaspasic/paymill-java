@@ -176,7 +176,9 @@ public final class Transaction {
    * @return the message or <code>null</code> if no message is available.
    */
   public String getResponseCodeDetail() {
-    if( getResponseCode() == 10001 ) {
+    if( getResponseCode() == null ) {
+      return null;
+    } else if( getResponseCode() == 10001 ) {
       return "General undefined response";
     } else if( getResponseCode() == 10002 ) {
       return "Still waiting on something.";
